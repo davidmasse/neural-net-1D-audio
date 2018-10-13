@@ -5,7 +5,7 @@
 
 This notebook uses a Kaggle dataset (https://www.kaggle.com/mmoreaux/audio-cats-and-dogs) and takes a related Kaggle kernel as a point of departure to explore CNNs. The methods pursued do not involve mel-spectrograms, which turn audio classification into an image classification exercise.  Once a model is trained and hyperparameters tuned, examples from the held-out test set illustrate the workings of the network's layers.
 
-Each data file has 1-20 or so seconds of audio recorded at 16kHz (i.e a time series where a value is recorded every 16,000th of a second).  Here are plots of two dog files (labeled "1") and two cat files (labeled "2") where meows and barks can be clearly seen:
+Each data file has 1-20 or so seconds of audio recorded at 16kHz (i.e a time series where a value is recorded every 16,000th of a second).  Here are plots of two dog files (labeled "1") and two cat files (labeled "0") where meows and barks can be clearly seen:
 
 ![audio_beginning](/img/audio_beginning.png)
 
@@ -78,7 +78,7 @@ This lines up with a high weight on component 3 in the sigmoid model, both pushi
 
 The global average pooling output for cats, in contrast, tends to have strong components 1 and 6, which line up with low weights in the sigmoid layer, leading to low probability of "dog" (i.e. high probability of "cat"):
 
-![global_pooling_cat_1][/img/global_pooling_cat_1.png]
+![global_pooling_cat_1](/img/global_pooling_cat_1.png)
 
 The filter weights can also be visualized, at least for the first convolutional layer as seen below.  We can see how different intensities of value increases and decreases (i.e. edges) would be detected by these filters.  (There are a 100 sets of 4 filter weights for each layer from 2 to 10, so we won't visualize those.)
 
